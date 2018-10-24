@@ -1,13 +1,13 @@
 {
-  "name": "backend_airbnb",
+  "name": "condelantal",
   "version": "1.0.0",
-  "description": "Backend Airbnb",
+  "description": "Backend_conDelantal",
   "main": "server.js",
   "scripts": {
     "start": "nodemon ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Edwin Salgado",
+  "author": "Yael Ibarra & Ricardo Basurto",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.1",
