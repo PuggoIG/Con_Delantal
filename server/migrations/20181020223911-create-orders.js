@@ -9,10 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       status: {
-        type: Sequelize.ENUM
+        type: Sequelize.ENUM,
+        values:["On the way","Received","In the kitchen"]
       },
       total_price: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(10,2)
       },
       paypal_confirmation: {
         type: Sequelize.STRING

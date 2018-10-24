@@ -21,7 +21,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       gender: {
-        type: Sequelize.ENUM
+        type: Sequelize.ENUM,
+        values:["M","F"]
+
       },
       birth_date: {
         type: Sequelize.DATE
@@ -30,7 +32,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       type: {
-        type: Sequelize.ENUM
+        type: Sequelize.ENUM,
+        values:["Owner","Client"]
       },
       createdAt: {
         allowNull: false,

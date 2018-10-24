@@ -9,19 +9,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       products: {
-        type: Sequelize.STRING//array de strings como en las photos de airbnb
+        type: Sequelize.ARRAY(Sequelize.JSON)//array de strings como en las photos de airbnb sequelize array.json
       },
       description: {
         type: Sequelize.TEXT
       },
       status: {
-        type: Sequelize.ENUM
+        type: Sequelize.ENUM,
+        values:["Open","CLosed"]
       },
-      photos: {
+     /*  photos: {
         type: Sequelize.ARRAY
-      },
+      }, //va dentro del JSON de los productos */
       rate: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(5,1)
       },
       createdAt: {
         allowNull: false,
