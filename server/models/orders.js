@@ -1,12 +1,21 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Orders = sequelize.define('Orders', {
-    status: DataTypes.ENUM,
-    total_price: DataTypes.DECIMAL,
+  var Orders = sequelize.define('Orders', {
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue:DataTypes.UUIDV4 
+    },
+    status: {
+      types:DataTypes.ENUM,
+      values:["On the way","Received","In the kitchen"]},
+    total_price: DataTypes.DECIMAL(10,2),
     paypal_confirmation: DataTypes.STRING
   }, {});
   Orders.associate = function(models) {
-    // associations can be defined here
+/*     Orders.belongsTo(models.Users,{foreignKey:"userId"})
+    Orders.belongsTo(models.Houses,{foreignKey:"houseId"}) */
   };
   return Orders;
 };

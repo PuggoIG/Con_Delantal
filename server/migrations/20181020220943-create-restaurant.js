@@ -4,9 +4,9 @@ module.exports = {
     return queryInterface.createTable('Restaurants', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue:Sequelize.UUIDV4 
       },
       products: {
         type: Sequelize.ARRAY(Sequelize.JSON)//array de strings como en las photos de airbnb sequelize array.json

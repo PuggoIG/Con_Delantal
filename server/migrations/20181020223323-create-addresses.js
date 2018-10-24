@@ -4,9 +4,9 @@ module.exports = {
     return queryInterface.createTable('Addresses', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue:Sequelize.UUIDV4 
       },
       address_1: {
         type: Sequelize.STRING
