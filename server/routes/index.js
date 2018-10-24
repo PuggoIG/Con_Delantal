@@ -3,7 +3,7 @@ const router = express.Router();
 const isAuthenticated =  require("../middlewares/isAuthenticated");
 const {calculatePriceValidation} = require("../middlewares/validations")
 const {signUp,logIn,me} =  require("../controllers/users");
-const {createRestuarant,getAllRestaurants,getOneRestuarant} =  require("../controllers/houses");
+const {createRestuarant,getAllRestaurants,getOneRestuarant} =  require("../controllers/restaorants");
 const {calculatePrice,createOder} = require('../controllers/orders');
 
 
