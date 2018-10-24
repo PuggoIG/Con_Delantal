@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "dbqfhmws",
+    "password": "kNekEsepY0qlWq_j8MUYkKb1SRp0UcEH",
+    "database": "dbqfhmws",
+    "host": "elmer.db.elephantsql.com",
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",

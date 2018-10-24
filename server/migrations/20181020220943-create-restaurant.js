@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       products: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING//array de strings como en las photos de airbnb
       },
       description: {
         type: Sequelize.TEXT
