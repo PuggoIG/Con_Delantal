@@ -2,13 +2,70 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+    queryInterface.addColumn(
+      "Restaurant",
+      "userId",{
+        type:Sequelize.UUID,
+        references:{
+          model:'Users',
+          key:"id"
+        }
+      }
 
-      Example:
-      return queryInterface.createTable('users', { id: Sequelize.INTEGER });
-    */
+    )
+
+    queryInterface.addColumn(
+      "Addresses",
+      "restaurantId",{
+        type:Sequelize.UUID,
+        references:{
+          model:'Restaurant',
+          key:"id"
+        }
+      }
+
+    )
+
+
+   
+    queryInterface.addColumn(
+      "Comments",
+      "OrderId",{
+        type:Sequelize.UUID,
+        references:{
+          model:'Orders',
+          key:"id"
+        }
+      }
+
+    )
+
+
+    queryInterface.addColumn(
+      "Orders",
+      "restaurantId",{
+        type:Sequelize.UUID,
+        references:{
+          model:'Restaurant',
+          key:"id"
+        }
+      }
+
+    )
+
+
+    queryInterface.addColumn(
+      "Orders",
+      "userId",{
+        type:Sequelize.UUID,
+        references:{
+          model:'Users',
+          key:"id"
+        }
+      }
+
+    )
+
   },
 
   down: (queryInterface, Sequelize) => {

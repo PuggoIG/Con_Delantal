@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       type: Sequelize.UUID,
       defaultValue:Sequelize.UUIDV4 
     },
-    products: DataTypes.STRING,
+    products: DataTypes.ARRAY,
     description: DataTypes.TEXT,
     status: {type:DataTypes.ENUM,values:["Open","CLosed"]},
     photos: DataTypes.ARRAY(DataTypes.STRING),

@@ -18,11 +18,11 @@ module.exports = {
         type: Sequelize.ENUM,
         values:["Open","CLosed"]
       },
-     /*  photos: {
+      photos: {
         type: Sequelize.ARRAY
       }, //va dentro del JSON de los productos */
       rate: {
-        type: Sequelize.DECIMAL(5,1)
+        type: Sequelize.DECIMAL(10,2)
       },
       createdAt: {
         allowNull: false,
