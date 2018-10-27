@@ -1,7 +1,7 @@
-/* const {Houses,Orders}= require("../models");
+ const {Restaurants,Orders}= require("../models");
 
 const calculatePrice = async (req,res)=>{
-    const {date_init,date_due,houseId}= req.body
+    const {date_init,date_due,restaurantId}= req.body
     
     
     const date1= new Date (date_init);
@@ -10,37 +10,37 @@ const calculatePrice = async (req,res)=>{
     let timeDiff = Math.abs(date2.getTime()-date1.getTime());
     let dayDiff = Math.ceil(timeDiff/(1000*3600*24))
 
-    const house = await Houses.findById(houseId)
-    if (!house) res.status.json({message:"House does not exist"});
+    const order = await Orders.findById(restaurantId)
+    if (!order) res.status.json({message:"Restaurant does not exist"});
 
-    const count_booking = await Bookings.count({where:{
+    const count_order = await Orders.count({where:{
         start_date:{
             $between:[date_init,date_due]
         },
-        houseId:houseId
+        restaurantId:restaurantId
     }})
     
-    if(count_booking != 0) res.status(400).json({message:"This house is already booked"})
+    if(count_order != 0) res.status(400).json({message:"This restaurant is already booked"})
 
-    let price = dayDiff * house.price
+    let price = dayDiff * restaurnat.price
 
-    res.status(200).json({price:price,message:"Booking price calculated correctly"})
+    res.status(200).json({price:price,message:"Order price calculated correctly"})
 
 
 }
 
-const createBooking= async(req,res)=>{
+const createOrders = async(req,res)=>{
 
     req.body.userId = req.user.id
-    const booking= await Bookings.create(req.body).catch(e=>res.statys(400).json(e))
-    if(!booking) res.status(400).json({message:"Problems to create booking"})
+    const order= await Orders.create(req.body).catch(e=>res.statys(400).json(e))
+    if(!order) res.status(400).json({message:"Problems to create order"})
 
-    res.status(200).json({message:"booking created",id:booking.id})
+    res.status(200).json({message:"order created",id:order.id})
 
 
 }
 
 module.exports={
     calculatePrice,
-    createBooking
-} */
+    createOrders
+} 

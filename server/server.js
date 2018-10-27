@@ -23,3 +23,7 @@ app.use(cors());
 app.get('/', (req,res) => {
     res.send("Everthing Works! :)");
 });
+
+app.listen(port,e =>console.log(`works in port ${port}`));
+
+module.exports = app;

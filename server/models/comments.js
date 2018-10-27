@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     comments_user: DataTypes.TEXT
   }, {});
   Comments.associate = function(models) {
-  /*   Comments.belongsTo(models.Orders,{foreignKey:"bookingId"}) */
+  Comments.belongsTo(models.Orders,{foreignKey:"orderId"})
   };
   return Comments;
 };

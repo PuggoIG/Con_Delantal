@@ -34,7 +34,7 @@ const me= async (req,res)=>{
          include:[
         {
             model:Orders,
-            as:"bookings"
+            as:"orders"
         }
         ]
     }
