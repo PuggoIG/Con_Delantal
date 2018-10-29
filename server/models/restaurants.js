@@ -1,11 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Restaurant = sequelize.define('Restaurant', {
+  var Restaurants = sequelize.define('Restaurants', {
     id: {
       allowNull: false,
       primaryKey: true,
-      type: Sequelize.UUID,
-      defaultValue:Sequelize.UUIDV4 
+      type: DataTypes.UUID,
+      defaultValue:DataTypes.UUIDV4 
     },
     products: DataTypes.ARRAY,
     description: DataTypes.TEXT,
@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     rate: DataTypes.DECIMAL(10,2)
   }, {});
 
-  Restaurant.associate = function(models) {
+  Restaurants.associate = function(models) {
   Restaurants.belongsTo(models.Users,{foreignKey:"userId",as:"user"})
     Restaurants.hasMany(models.Orders,{foreignKey:"restaurantId"})
     Restaurants.hasOne(models.Addresses,{foreignKey:"restaurantId",as:"address"}) 
   
   };
-  return Restaurant;
+  return Restaurants;
 };

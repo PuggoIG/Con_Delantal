@@ -19,7 +19,7 @@ module.exports = {
       "restaurantId",{
         type:Sequelize.UUID,
         references:{
-          model:'Restaurant',
+          model:'Restaurants',
           key:"id"
         }
       }
@@ -30,28 +30,28 @@ module.exports = {
    
     queryInterface.addColumn(
       "Comments",
-      "OrderId",{
+      "orderId",{
         type:Sequelize.UUID,
         references:{
           model:'Orders',
           key:"id"
         }
       }
-
     )
 
 
-    queryInterface.addColumn(
-      "Orders",
-      "restaurantId",{
-        type:Sequelize.UUID,
-        references:{
-          model:'Restaurant',
-          key:"id"
+          
+   queryInterface.addColumn(
+        "Ordes",
+        "restaurantId",{
+          type:Sequelize.UUID,
+          references:{
+            model:'Restaurants',
+            key:"id"
+          }
         }
-      }
-
     )
+      
 
 
     queryInterface.addColumn(
@@ -66,8 +66,11 @@ module.exports = {
 
     )
 
-  },
 
+
+
+  
+      },
   down: (queryInterface, Sequelize) => {
     /*
       Add reverting commands here.
