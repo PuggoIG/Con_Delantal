@@ -16,7 +16,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
-app.use('/api/v1',routes);
+app.use('/api/cd',routes);
 app.use(errors());
 app.use(cors());
 
