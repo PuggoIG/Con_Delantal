@@ -10,8 +10,8 @@ const calculatePrice = async (req,res)=>{
     let timeDiff = Math.abs(date2.getTime()-date1.getTime());
     let dayDiff = Math.ceil(timeDiff/(1000*3600*24))
 
-    const order = await Orders.findById(restaurantId)
-    if (!order) res.status.json({message:"Restaurant does not exist"});
+    const restaurant = await Restaurants.findById(restaurantId)
+    if (!restaurant) res.status.json({message:"Restaurant does not exist"});
 
     const count_order = await Orders.count({where:{
         start_date:{
@@ -29,10 +29,11 @@ const calculatePrice = async (req,res)=>{
 
 }
 
-const createOrders = async(req,res)=>{
+const createOrder = async(req,res)=>{
 
     req.body.userId = req.user.id
-    const order= await Orders.create(req.body).catch(e=>res.statys(400).json(e))
+    const order = await Orders.create(req.body)
+                            .catch(e=>res.status(400).json(e))
     if(!order) res.status(400).json({message:"Problems to create order"})
 
     res.status(200).json({message:"order created",id:order.id})
@@ -42,5 +43,5 @@ const createOrders = async(req,res)=>{
 
 module.exports={
     calculatePrice,
-    createOrders
+    createOrder
 } 

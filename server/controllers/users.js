@@ -1,8 +1,8 @@
-const {Users,Orders} = require("../models");
+const {Users,Orders} = require("../models"); 
+const createToken = require('../resolvers/createToken');
 
 
-const signUp= async(req,res)=>{
-    console.log(req.body)
+const signUp = async(req,res)=>{
     let user = await Users.create(req.body)
     if (!user) return res.status(400).json({message:"Error creating new user"})
 
@@ -26,10 +26,10 @@ const logIn =  async(req,res) => {
 
 }
 
-const me= async (req,res)=>{
+const me = async (req,res)=>{
 
     const profile= await Users.findOne(
-        {where:{id:req.user.id},
+        { where:{id:req.user.id},
         attributes:{exclude:["password"]},
          include:[
         {
