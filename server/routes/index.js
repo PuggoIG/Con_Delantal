@@ -1,9 +1,9 @@
 const  express =  require("express");
 const router = express.Router();
 const isAuthenticated =  require("../middlewares/isAuthenticated");
-const {calculatePriceValidation} = require("../middlewares/validations")
+const {calculatePriceValidation} = require("../middlewares/validation")
 const {signUp,logIn,me} =  require("../controllers/users");
-const {createRestuarant,getAllRestaurants,getOneRestuarant} =  require("../controllers/restaorants");
+const {createRestuarant,getAllRestaurants,getOneRestuarant} =  require("../controllers/restaurants");
 const {calculatePrice,createOder} = require('../controllers/orders');
 
 

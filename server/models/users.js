@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     id: {
       allowNull: false,
       primaryKey: true,
-      type: Sequelize.UUID,
-      defaultValue:Sequelize.UUIDV4
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
     },
     name:{type:DataTypes.STRING,
       allowNull:false},
@@ -65,7 +65,7 @@ module.exports = (sequelize, DataTypes) => {
 
 
   Users.associate = function(models) {
-    Users.hasMany(models.Restaurant,{foreignKey:"userId"});
+    Users.hasMany(models.Restaurants,{foreignKey:"userId"});
     Users.hasMany(models.Orders,{foreignKey:"userId",as:"orders"});
   };
   return Users;
