@@ -4,7 +4,7 @@ module.exports = {
     return queryInterface.createTable('Restaurants', {
       id: {
         allowNull: false,
-        primaryKey: true,
+        primaryKey: true,//te amo bb
         type: Sequelize.UUID,
         defaultValue:Sequelize.UUIDV4 
       },
@@ -19,10 +19,10 @@ module.exports = {
         values:["Open","CLosed"]
       },
       photos: {
-        type: Sequelize.ARRAY
+        type: Sequelize.ARRAY(Sequelize.STRING)
       }, //va dentro del JSON de los productos */
       rate: {
-        type: Sequelize.DECIMAL(10,2)
+        type: Sequelize.DECIMAL(5,1)
       },
       createdAt: {
         allowNull: false,
