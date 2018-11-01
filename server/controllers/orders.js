@@ -22,7 +22,7 @@ const calculatePrice = async (req,res)=>{
     
     if(count_order != 0) res.status(400).json({message:"This restaurant is already booked"})
 
-    let price = dayDiff * restaurnat.price
+    let price = dayDiff * restaurant.price
 
     res.status(200).json({price:price,message:"Order price calculated correctly"})
 

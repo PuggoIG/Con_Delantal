@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "dbqfhmws",
-    "password": "kNekEsepY0qlWq_j8MUYkKb1SRp0UcEH",
-    "database": "dbqfhmws",
-    "host": "elmer.db.elephantsql.com",
+    "username": "faiaygiu",
+    "password": "c98nKVF5rDBJAkDkz7mjogXsrHNsedBC",
+    "database": "faiaygiu",
+    "host": "stampy.db.elephantsql.com",
     "dialect": "postgres"
   },
   "test": {
