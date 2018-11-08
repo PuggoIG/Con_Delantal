@@ -7,9 +7,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       defaultValue:DataTypes.UUIDV4 
     },
+    name:{type:DataTypes.STRING,
+      allowNull:false},
     products: DataTypes.ARRAY(DataTypes.JSON),
     description: DataTypes.TEXT,
-    status: {type:DataTypes.ENUM,values:["Open","CLosed"]},
+    status: {type:DataTypes.ENUM,values:["Open","Closed"]},
     photos: DataTypes.ARRAY(DataTypes.STRING),
     rate: DataTypes.DECIMAL(10,2)
   }, {});

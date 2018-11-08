@@ -2,6 +2,7 @@ const {Restaurants,Addresses,Users} = require("../models");
 
 const createRestaurant = async(req,res) => {
     try{
+        console.log(req.user.id)
         req.body.userId = req.user.id
         const restaurant = await Restaurants.create(req.body)
         if(!restaurant) res.status(400).json({"message":"Error to create restaurant"})
@@ -10,7 +11,7 @@ const createRestaurant = async(req,res) => {
         
         return res.status(201).json(restaurant)
     }catch(e){
-        console.log(e.message)
+        console.log(e)
         return res.status(400).json({e})
     }
 }
