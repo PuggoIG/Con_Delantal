@@ -8,12 +8,12 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue:DataTypes.UUIDV4 
     },
     status: {
-      type:DataTypes.ENUM,
-      values:["On the way","Received","In the kitchen"]},
-    total_price: DataTypes.DECIMAL(10,2),
-    paypal_confirmation: DataTypes.STRING
+      type:DataTypes.STRING},
+    total_price:  DataTypes.DECIMAL(10,2),
+    userId: DataTypes.STRING,
+    restaurantId: DataTypes.STRING
   }, {});
-    Orders.associate = function(models) {
+  Orders.associate = function(models) {
     Orders.belongsTo(models.Users,{foreignKey:"userId"})
     Orders.belongsTo(models.Restaurants,{foreignKey:"restaurantId"})
   };

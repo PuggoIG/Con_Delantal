@@ -1,5 +1,5 @@
 'use strict';
-const bcrypt= require('bcrypt');
+const bcrypt = require('bcrypt');
 
 module.exports = (sequelize, DataTypes) => {
   var Users = sequelize.define('Users', {
@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4
     },
-    name:{type:DataTypes.STRING,
+    name: {type:DataTypes.STRING,
       allowNull:false},
-    lastname:{type:DataTypes.STRING,
+    lastname: {type:DataTypes.STRING,
       allowNull:false},
-    email:{
+    email: {
       type:DataTypes.STRING,
       allowNull:false,
       unique:true,
@@ -27,9 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: DataTypes.STRING,
     gender: {type:DataTypes.ENUM,values:["M","F"]},
-    birth_date: DataTypes.DATE,
-    paypal_id: DataTypes.STRING,
-    type: {type:DataTypes.ENUM,values:["Owner","Client"]}
+    birth_date: DataTypes.DATE
   }, {});
 
   let cryptPassword= (password) =>{
@@ -60,10 +58,13 @@ module.exports = (sequelize, DataTypes) => {
         })
     })
 }
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
   Users.associate = function(models) {
     Users.hasMany(models.Restaurants,{foreignKey:"userId"});
     Users.hasMany(models.Orders,{foreignKey:"userId",as:"orders"});

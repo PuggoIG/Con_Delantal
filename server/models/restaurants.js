@@ -7,20 +7,24 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       defaultValue:DataTypes.UUIDV4 
     },
-    name:{type:DataTypes.STRING,
+    name: {type:DataTypes.STRING,
       allowNull:false},
-    products: DataTypes.ARRAY(DataTypes.JSON),
     description: DataTypes.TEXT,
-    status: {type:DataTypes.ENUM,values:["Open","Closed"]},
-    photos: DataTypes.ARRAY(DataTypes.STRING),
-    rate: DataTypes.DECIMAL(10,2)
+    photos:  DataTypes.ARRAY(DataTypes.STRING),
+    products: DataTypes.ARRAY(DataTypes.JSON),
+    /* userId: {
+      type:Sequelize.UUID,
+      references:{
+        model:'Users',
+        key:"id"
+      }
+    } */
   }, {});
-
   Restaurants.associate = function(models) {
-  Restaurants.belongsTo(models.Users,{foreignKey:"userId",as:"user"})
-    Restaurants.hasMany(models.Orders,{foreignKey:"restaurantId"})
-    Restaurants.hasOne(models.Addresses,{foreignKey:"restaurantId",as:"address"}) 
-  
+    Restaurants.belongsTo(models.Users,{foreignKey:"userId",as:"user"})
+      Restaurants.hasMany(models.Orders,{foreignKey:"restaurantId"})
+      Restaurants.hasOne(models.Addresses,{foreignKey:"restaurantId",as:"address"}) 
+    
+    };
+    return Restaurants;
   };
-  return Restaurants;
-};

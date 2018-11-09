@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "faiaygiu",
-    "password": "c98nKVF5rDBJAkDkz7mjogXsrHNsedBC",
-    "database": "faiaygiu",
-    "host": "stampy.db.elephantsql.com",
+    "username": "vmhvblfj",
+    "password": "mTc2E3lYQ6Iy5dqlV9-M1CWq6XlVC7rv",
+    "database": "vmhvblfj",
+    "host": "pellefant.db.elephantsql.com",
     "dialect": "postgres"
   },
   "test": {

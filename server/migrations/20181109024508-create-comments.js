@@ -11,6 +11,13 @@ module.exports = {
       comments_user: {
         type: Sequelize.TEXT
       },
+      restaurantId:{
+        type:Sequelize.UUID,
+        references:{
+          model:'Restaurants',
+          key:"id"
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -11,13 +11,10 @@ module.exports = (sequelize, DataTypes) => {
     address_2: DataTypes.STRING,
     country: DataTypes.STRING,
     city: DataTypes.STRING,
-    zip_code: DataTypes.STRING,
-    lat: DataTypes.FLOAT,
-    long: DataTypes.FLOAT,
-    references: DataTypes.TEXT
+    zip_code: DataTypes.STRING
   }, {});
   Addresses.associate = function(models) {
-  Addresses.belongsTo(models.Restaurants,{foreignKey:"restuarantId"})
+    Addresses.belongsTo(models.Restaurants,{foreignKey:"restaurantId"})
+    };
+    return Addresses;
   };
-  return Addresses;
-};
