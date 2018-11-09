@@ -7,8 +7,8 @@ const createRestaurant = async(req,res) => {
       
         const restaurant = await Restaurants.create(req.body)
         if(!restaurant) res.status(400).json({"message":"Error to create restaurant"})
-       //const address =  await Addresses.create({...req.body.address, restaurantId:restaurant.id})
-    //if(!address) res.status(400).json({"message":"Error to create address"})
+       const address =  await Addresses.create({...req.body.address, restaurantId:restaurant.id})
+        if(!address) res.status(400).json({"message":"Error to create address"})
         
         return res.status(201).json(restaurant)
     }catch(e){
